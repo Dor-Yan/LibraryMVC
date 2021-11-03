@@ -15,16 +15,34 @@ namespace LibraryMVC.Web.Controllers
         {
             _readService = readService;
         }
+
+        [HttpGet]
         public IActionResult Index()
         {
-
-            var model = _readService.GetAllReadersForList();
+            var model = _readService.GetAllReadersForList(2, 1, "");
             return View(model);
         }
 
-        public IActionResult ViewReader(int readerId)
+        [HttpPost]
+
+        public IActionResult Index(int pageSize, int? pageNo, string searchString)
         {
-            var readerModel = _readService.GetReaderDetails(readerId);
+            if (!pageNo.HasValue)
+            {
+                pageNo = 1;
+            }
+
+            if (searchString is null)
+            {
+                searchString = String.Empty;
+            }
+
+            var model = _readService.GetAllReadersForList(pageSize, pageNo.Value, searchString);
+            return View(model);
+        }
+        public IActionResult ViewReader(int Id)
+        {
+            var readerModel = _readService.GetReaderDetails(Id);
             return View(readerModel);
         }
 

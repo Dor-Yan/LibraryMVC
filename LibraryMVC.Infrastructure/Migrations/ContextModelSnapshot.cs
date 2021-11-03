@@ -97,6 +97,9 @@ namespace LibraryMVC.Infrastructure.Migrations
                     b.Property<string>("EmailAdress")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 

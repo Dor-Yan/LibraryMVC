@@ -27,14 +27,19 @@ namespace LibraryMVC.Application.Services
             throw new NotImplementedException();
         }
 
-        public ListReaderForListVm GetAllReadersForList()
+        public ListReaderForListVm GetAllReadersForList(int pageSize, int pageNo, string searchString)
         {
-            var readers = _readerRepo.GetAllActiveReaders()
+            var readers = _readerRepo.GetAllActiveReaders().Where(p => p.Name.StartsWith(searchString))
                 .ProjectTo<ReaderForListVm>(_mapper.ConfigurationProvider).ToList(); //ProjectTo w przypadku kolekcji
+
+            var readerToShow = readers.Skip(pageSize * (pageNo - 1)).Take(pageSize).ToList();
 
             var readerList = new ListReaderForListVm()
             {
-                Readers = readers,
+                PageSize = pageSize,
+                CurrentPage = pageNo,
+                SearchString = searchString,
+                Readers = readerToShow,
                 Count = readers.Count
             };
 

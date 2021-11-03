@@ -19,6 +19,7 @@ namespace LibraryMVC.Infrastructure
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Domain.Model.Type> Types { get; set; }
         public DbSet<Writer> Writers { get; set; }
+
         public Context(DbContextOptions options) : base(options)
         {
         }

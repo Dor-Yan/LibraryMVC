@@ -9,7 +9,7 @@ namespace LibraryMVC.Application.Interfaces
 {
     public interface IReaderService
     {
-        ListReaderForListVm GetAllReadersForList();
+        ListReaderForListVm GetAllReadersForList(int pageSize, int pageNo, string searchString);
 
         int AddReader(NewReaderVm reader);
 
