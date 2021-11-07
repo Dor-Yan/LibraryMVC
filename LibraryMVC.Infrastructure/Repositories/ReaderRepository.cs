@@ -17,6 +17,14 @@ namespace LibraryMVC.Infrastructure.Repositories
         {
             _context = context;
         }
+
+        public int AddReader(Reader reader)
+        {
+            _context.Readers.Add(reader);
+            _context.SaveChanges();
+            return reader.Id;
+        }
+
         public IQueryable<Reader> GetAllActiveReaders()
         {
             return _context.Readers.Where(p => p.IsActive);

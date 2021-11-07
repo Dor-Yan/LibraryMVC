@@ -1,4 +1,5 @@
 ﻿using LibraryMVC.Application.Interfaces;
+using LibraryMVC.Application.ViewModels.Reader;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -50,15 +51,15 @@ namespace LibraryMVC.Web.Controllers
 
         public IActionResult AddReader()
         {
-            return View();
+            return View(new NewReaderVm());
         }
 
-        //[HttpPost]
+        [HttpPost]
 
-        //public IActionResult AddReader (ReaderModel model)
-        //{
-        //    var id = _readService.AddReader(model);
-        //    return View();
-        //}
+        public IActionResult AddReader(NewReaderVm model)
+        {
+            var id = _readService.AddReader(model);
+            return RedirectToAction("Index");
+        }
     }
 }

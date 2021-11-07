@@ -3,6 +3,7 @@ using AutoMapper.QueryableExtensions;
 using LibraryMVC.Application.Interfaces;
 using LibraryMVC.Application.ViewModels.Reader;
 using LibraryMVC.Domain.Interface;
+using LibraryMVC.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,9 @@ namespace LibraryMVC.Application.Services
         }
         public int AddReader(NewReaderVm reader)
         {
-            throw new NotImplementedException();
+            var read = _mapper.Map<Reader>(reader);
+            var id = _readerRepo.AddReader(read);
+            return id;
         }
 
         public ListReaderForListVm GetAllReadersForList(int pageSize, int pageNo, string searchString)

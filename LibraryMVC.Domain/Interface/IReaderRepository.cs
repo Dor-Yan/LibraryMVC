@@ -11,5 +11,7 @@ namespace LibraryMVC.Domain.Interface
     {
         IQueryable<Reader> GetAllActiveReaders();
         Reader GetReader(int readerId);
+
+        int AddReader(Reader reader);
     }
 }
