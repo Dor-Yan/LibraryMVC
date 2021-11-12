@@ -1,4 +1,7 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using LibraryMVC.Application;
+using LibraryMVC.Application.ViewModels.Reader;
 using LibraryMVC.Domain.Interface;
 using LibraryMVC.Infrastructure;
 using LibraryMVC.Infrastructure.Repositories;
@@ -40,9 +43,11 @@ namespace LibraryMVC.Web
 
             services.AddApplication();
             services.AddInfrastructure();
-           
-            services.AddControllersWithViews();
+
+            services.AddControllersWithViews().AddFluentValidation();
             services.AddRazorPages();
+
+            services.AddTransient<IValidator<NewReaderVm>, NewReaderValidation>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -15,15 +15,13 @@ namespace LibraryMVC.Domain.Interface
         int AddBook(Book book);
 
         IQueryable<Book> GetBooksByTypeId(int typeId);
-
-
-        Book GetBookById(int bookId);
-
+        IQueryable<Book> GetAllBooks();
+        Book GetBookById(int bookId);   
 
         IQueryable<Tag> GetAllTags();
 
-
         IQueryable<Type> GetAllTypes();
-       
+        IQueryable<Writer> GetAllWriters();
+
     }
 }

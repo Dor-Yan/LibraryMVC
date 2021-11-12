@@ -13,7 +13,7 @@ namespace LibraryMVC.Domain.Model
         public string Publisher { get; set; }
         public string DateOfEdition { get; set; }
         public int NumberOfPages { get; set; }
-        public int ISBN { get; set; }
+        public string ISBN { get; set; }
         public int TypeId { get; set; }
 
         public virtual Type Type { get; set; }
