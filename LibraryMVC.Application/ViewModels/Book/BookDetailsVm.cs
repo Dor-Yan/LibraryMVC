@@ -21,9 +21,8 @@ namespace LibraryMVC.Application.ViewModels.Book
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<LibraryMVC.Domain.Model.Book, BookDetailsVm>()
-                .ForMember(s => s.Types, opt => opt.Ignore())
-                .ForMember(s => s.Writers, opt => opt.Ignore());
+            profile.CreateMap<LibraryMVC.Domain.Model.Book, BookDetailsVm>();
+                
         }
 
     }

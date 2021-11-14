@@ -15,6 +15,7 @@ namespace LibraryMVC.Application
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddTransient<IReaderService, ReaderService>();
+            services.AddTransient<IBookService, BookService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             return services;
         }

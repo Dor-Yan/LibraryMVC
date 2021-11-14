@@ -15,6 +15,12 @@ namespace LibraryMVC.Application.Services
     {
         private readonly IBookRepository _bookRepo;
         private readonly IMapper _mapper;
+
+        public BookService(IBookRepository bookRepo, IMapper mapper)
+        {
+            _bookRepo = bookRepo;
+            _mapper = mapper;
+        }
         public int AddBook(NewBookVm book)
         {
             throw new NotImplementedException();

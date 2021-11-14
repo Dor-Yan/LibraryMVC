@@ -1,5 +1,6 @@
 ﻿using LibraryMVC.Domain.Interface;
 using LibraryMVC.Domain.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,7 +47,7 @@ namespace LibraryMVC.Infrastructure.Repositories
 
         public Book GetBookById(int bookId)
         {
-            var book = _context.Books.FirstOrDefault(i => i.Id == bookId);
+            var book = _context.Books.Include(b => b.BookWriters).Include(b => b.Type).FirstOrDefault(i => i.Id == bookId);
 
             return book;
         }
@@ -61,6 +62,16 @@ namespace LibraryMVC.Infrastructure.Repositories
         {
             var types = _context.Types;
             return types;
+        }
+
+        public IQueryable<Book> GetAllBooks()
+        {
+            return _context.Books;
+        }
+
+        public IQueryable<Writer> GetAllWriters()
+        {
+            return _context.Writers;
         }
     }
 }
