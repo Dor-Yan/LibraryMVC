@@ -61,5 +61,23 @@ namespace LibraryMVC.Web.Controllers
             var id = _readService.AddReader(model);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+
+        public IActionResult EditReader(int id)
+        {
+            var reader = _readService.GetReaderForEdit(id);
+            return View(reader);
+        }
+
+        [HttpPost]
+
+        public IActionResult EditReader(NewReaderVm model)
+        {
+            _readService.UpdateReader(model);
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

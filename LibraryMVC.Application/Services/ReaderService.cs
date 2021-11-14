@@ -84,5 +84,18 @@ namespace LibraryMVC.Application.Services
 
             return readerVm;
         }
+
+        public object GetReaderForEdit(int id)
+        {
+            var reader = _readerRepo.GetReader(id);
+            var readerVm = _mapper.Map<NewReaderVm>(reader);
+            return readerVm;
+        }
+
+        public void UpdateReader(NewReaderVm model)
+        {
+            var reader = _mapper.Map<Reader>(model);
+            _readerRepo.UpdateReader(reader);
+        }
     }
 }

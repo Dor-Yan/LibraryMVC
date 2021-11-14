@@ -16,6 +16,7 @@ namespace LibraryMVC.Application.ViewModels.Book
         public void Mapping(Profile profile)
         {
             profile.CreateMap<LibraryMVC.Domain.Model.Type, TypeForListVm>();
+                
         }
     }
 }

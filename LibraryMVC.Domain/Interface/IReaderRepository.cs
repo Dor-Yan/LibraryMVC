@@ -13,5 +13,6 @@ namespace LibraryMVC.Domain.Interface
         Reader GetReader(int readerId);
 
         int AddReader(Reader reader);
+        void UpdateReader(Reader reader);
     }
 }

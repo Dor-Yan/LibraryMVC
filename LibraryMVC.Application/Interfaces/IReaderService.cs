@@ -14,5 +14,7 @@ namespace LibraryMVC.Application.Interfaces
         int AddReader(NewReaderVm reader);
 
         ReaderDetailsVm GetReaderDetails(int readerId);
+        object GetReaderForEdit(int id);
+        void UpdateReader(NewReaderVm model);
     }
 }

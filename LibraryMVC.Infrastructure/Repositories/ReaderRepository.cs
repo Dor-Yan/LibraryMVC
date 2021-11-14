@@ -34,5 +34,19 @@ namespace LibraryMVC.Infrastructure.Repositories
         {
             return _context.Readers.FirstOrDefault(p => p.Id == readerId);
         }
+
+        public void UpdateReader(Reader reader)
+        {
+            _context.Attach(reader);
+            _context.Entry(reader).Property("Name").IsModified = true;
+            _context.Entry(reader).Property("Street").IsModified = true;
+            _context.Entry(reader).Property("BuildingNumber").IsModified = true;
+            _context.Entry(reader).Property("ZipCode").IsModified = true;
+            _context.Entry(reader).Property("City").IsModified = true;
+            _context.Entry(reader).Property("PhoneNumber").IsModified = true;
+            _context.Entry(reader).Property("EmailAdress").IsModified = true;
+            _context.Entry(reader).Property("IsActive").IsModified = true;
+            _context.SaveChanges();
+        }
     }
 }

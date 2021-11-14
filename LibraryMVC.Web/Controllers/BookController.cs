@@ -52,7 +52,7 @@ namespace LibraryMVC.Web.Controllers
             return View();
         }
 
-        [HttpPost]
+        //[HttpPost]
         //public IActionResult AddNewTypeForBook(TypeModel model)
         //{
         //    return View();
