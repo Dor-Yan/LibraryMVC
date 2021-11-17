@@ -11,7 +11,7 @@ namespace LibraryMVC.Application.ViewModels.Book
     public class TypeForListVm : IMapFrom<LibraryMVC.Domain.Model.Type>
     {
         public int Id { get; set; }
-        public string Type { get; set; }
+        public string Name { get; set; }
 
         public void Mapping(Profile profile)
         {

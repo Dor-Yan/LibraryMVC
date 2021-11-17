@@ -11,7 +11,7 @@ namespace LibraryMVC.Application.ViewModels.Book
     public class BookDetailsVm : IMapFrom<LibraryMVC.Domain.Model.Book>
     {
         public int Id { get; set; }
-        public List<TypeForListVm> Types { get; set; }
+        public TypeForListVm Type { get; set; }
         public string Title { get; set; }
         public List<WriterForListVm> Writers { get; set; }
         public string Publisher { get; set; }
