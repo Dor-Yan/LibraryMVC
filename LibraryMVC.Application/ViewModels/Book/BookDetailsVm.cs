@@ -23,6 +23,8 @@ namespace LibraryMVC.Application.ViewModels.Book
         {
             profile.CreateMap<LibraryMVC.Domain.Model.Book, BookDetailsVm>();
                 
+
+
         }
 
     }

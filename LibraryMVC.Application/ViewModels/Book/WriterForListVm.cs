@@ -18,7 +18,7 @@ namespace LibraryMVC.Application.ViewModels.Book
             //profile.CreateMap<LibraryMVC.Domain.Model.Writer, WriterForListVm>();
 
             profile.CreateMap<LibraryMVC.Domain.Model.Writer, WriterForListVm>()
-                .ForMember(s => s.Writer, opt => opt.MapFrom(d => d.BookWriters.Select(y => y.Writer).ToList()));
+                .ForMember(s => s.Writer, opt => opt.MapFrom(d => d.BookWriters.Select(y => y.Writer.Name).ToList()));
         }
     }
 }

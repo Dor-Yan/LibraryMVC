@@ -47,7 +47,7 @@ namespace LibraryMVC.Infrastructure.Repositories
 
         public Book GetBookById(int bookId)
         {
-            var book = _context.Books.Include(b => b.BookWriters).Include(b => b.Type).FirstOrDefault(i => i.Id == bookId);
+            var book = _context.Books.Include(b => b.BookWriters).ThenInclude(bw => bw.Writer).Include(b => b.Type).FirstOrDefault(i => i.Id == bookId);
 
             return book;
         }
