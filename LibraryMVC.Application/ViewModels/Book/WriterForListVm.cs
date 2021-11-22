@@ -15,10 +15,10 @@ namespace LibraryMVC.Application.ViewModels.Book
 
         public void Mapping(Profile profile)
         {
-            //profile.CreateMap<LibraryMVC.Domain.Model.Writer, WriterForListVm>();
+            
 
             profile.CreateMap<LibraryMVC.Domain.Model.Writer, WriterForListVm>()
-                .ForMember(s => s.Writer, opt => opt.MapFrom(d => d.BookWriters.Select(y => y.Writer.Name).ToList()));
+                .ForMember(s => s.Writer, opt => opt.MapFrom(d => d.Name));
         }
     }
 }

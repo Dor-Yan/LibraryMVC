@@ -21,8 +21,9 @@ namespace LibraryMVC.Application.ViewModels.Book
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<LibraryMVC.Domain.Model.Book, BookDetailsVm>();
-                
+            profile.CreateMap<LibraryMVC.Domain.Model.Book, BookDetailsVm>()
+                .ForMember(s => s.Writers, opt => opt.MapFrom(d => d.BookWriters.Select(bw => bw.Writer).ToList()));
+
 
 
         }
